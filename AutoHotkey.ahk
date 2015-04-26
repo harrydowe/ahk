@@ -1,35 +1,35 @@
 #IfWinActive, ahk_class Chrome_WidgetWin_1
 {
-RAlt & Enter::Send !{Enter}
+	RAlt & Enter::Send !{Enter}
 }
 #IfWinActive
 
-#IfWinExist, TeamSpeak 3
+#IfWinExist, Mumble ahk_class QWidget
 {
 	~CapsLock Up::SetCapsLockState, off
 }
 #IfWinExist
 
-#IfWinExist, Mumble
+#IfWinExist, TeamSpeak 3 ahk_class Qt5QWindowIcon
 {
 	~CapsLock Up::SetCapsLockState, off
 }
 #IfWinExist
 
-#IfWinExist, Ventrilio
+#IfWinExist, Ventrilo ahk_class #32770
 {
 	~CapsLock Up::SetCapsLockState, off
 }
 #IfWinExist
 
-#IfWinActive, Heroes of the Storm
+#IfWinActive, ahk_class Valve001
 {
 	~LWin Up::return
 	!Tab::Return
 }
 #IfWinActive
 
-#IfWinActive, Counter-Strike: Global Offensive
+#IfWinActive, ahk_class RiotWindowClass
 {
 	~LWin Up::return
 	!Tab::Return
