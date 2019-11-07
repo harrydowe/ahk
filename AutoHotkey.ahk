@@ -1,12 +1,12 @@
 #IfWinActive, ahk_class Chrome_WidgetWin_1
 {
-    RAlt & Enter::Send !{Enter}
+	RAlt & Enter::Send !{Enter}
 }
 #IfWinActive
 
 #IfWinExist, Mumble ahk_class QWidget
 {
-    ~CapsLock Up::SetCapsLockState, off
+	~CapsLock Up::SetCapsLockState, off
 }
 #IfWinExist
 
@@ -46,8 +46,8 @@
         if (SubStr(ctrl, 1, 17) == "VLC video output ") ; Is it the VLC video control?
         {
             SendInput, {Space} ; Play/pause VLC
-        }
-        return
+    }
+    return
 }
 #IfWinActive
 
