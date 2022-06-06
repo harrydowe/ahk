@@ -1,12 +1,12 @@
 #IfWinActive, ahk_class Chrome_WidgetWin_1
 {
-	RAlt & Enter::Send !{Enter}
+    RAlt & Enter::Send !{Enter}
 }
 #IfWinActive
 
 #IfWinExist, Mumble ahk_class QWidget
 {
-	~CapsLock Up::SetCapsLockState, off
+    ~CapsLock Up::SetCapsLockState, off
 }
 #IfWinExist
 
@@ -46,18 +46,26 @@
         if (SubStr(ctrl, 1, 17) == "VLC video output ") ; Is it the VLC video control?
         {
             SendInput, {Space} ; Play/pause VLC
-    }
-    return
+        }
+        return
 }
 #IfWinActive
 
-; Makes the Page Down button a menu macro to reset tilt.
-#IfWinActive, Google Earth
+#IfWinActive, ahk_exe Ableton Live 10 Suite.exe
 {
-    PgDn::Send {LAlt}v{Up}{Up}{Right}{Enter}
+    ^+z::Send ^{y} ; Control + Shift + Z = Control + Y (Undo)
+
+    XButton1:: ; Back mouse button
+        Send {F10} ; Back to arrangement
+        Send {NumpadDiv} ; Re-Enable Autoamtion
+        return
+
+    ^Enter:: ; Control enter: Insert selected Browser item on new MIDI Track
+        Send, ^+t
+        Send, {Enter}
+        return
 }
 #IfWinActive
-
 
 ; Global hotkeys
 {
@@ -66,9 +74,30 @@
 
     XButton1 & WheelUp::Send ^#{Left}
     XButton1 & WheelDown::Send ^#{Right}
-    XButton1::Send {XButton1}
     XButton1 & MButton::Send #{Tab}
+
+    ; Spanish characters
+    ^!+?::Send +¿ ; Control + Alt + Shift + ? = ¿
+    ^!+1::Send +¡ ; Control + Alt + Shift + ! = ¡
+    ^!n::Send +ñ ; Control + Alt + n = ñ
+    ^!+n::Send +Ñ ; Control + Alt + shift + N = Ñ
+    <^>!u::Send +ü ; Alt Gr + u
+    <^>!+u::Send +ü ; Alt Gr + Shift + u
+
+    ; Danish characters
+    <^>!o::Send +ø ; Alt Gr + o = ø
+    <^>!+o::Send +Ø ; Alt Gr + Shift + o = Ø
+    <^>!a::Send +å ; Alt Gr + a = å
+    <^>!+a::Send +Å ; Alt Gr + Shift + a = Å
+    <^>!e::Send +æ ; Alt gr + e = æ
+    <^>!+e::Send +Æ ; Alt gr + Shift + e = Æ
 }
+
+#IfWinNotActive, ahk_exe Ableton Live 10 Suite.exe
+{
+    XButton1::Send {XButton1}
+}
+#IfWinNotActive
 
 #IfWinActive, Warcraft III
 {
@@ -141,3 +170,9 @@
 ; #Left::Send {Home}
 ; #+Right::Send +{End}
 ; #Right::Send {End}
+
+
+#IfWinActive, ahk_exe MTGA.exe
+{
+    XButton1::Send {Space}
+}
