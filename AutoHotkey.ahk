@@ -81,8 +81,8 @@
     ^!+1::Send +¡ ; Control + Alt + Shift + ! = ¡
     ^!n::Send +ñ ; Control + Alt + n = ñ
     ^!+n::Send +Ñ ; Control + Alt + shift + N = Ñ
-    <^>!u::Send +ü ; Alt Gr + u
-    <^>!+u::Send +ü ; Alt Gr + Shift + u
+    <^>!u::Send +ü ; Alt Gr + u = ü
+    <^>!+u::Send +Ü ; Alt Gr + Shift + Ü
 
     ; Danish characters
     <^>!o::Send +ø ; Alt Gr + o = ø
@@ -170,7 +170,6 @@
 ; #Left::Send {Home}
 ; #+Right::Send +{End}
 ; #Right::Send {End}
-
 
 #IfWinActive, ahk_exe MTGA.exe
 {
